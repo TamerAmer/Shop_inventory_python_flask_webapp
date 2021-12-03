@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.manufacturer import Manufacturer
 
 def save(manufacturer):
-    sql="INSERT INTO manufacturers(name,telephone_number,address) VALUES (%s,%s,%s) RETURNING id"
+    sql="INSERT INTO manufacturers(name,telephone_number,address) VALUES (%s,%s,%s) RETURNING *"
     values=[manufacturer.name,manufacturer.telephone_number,manufacturer.address]
     result=run_sql(sql,values)
     manufacturer.id=result[0]['id']

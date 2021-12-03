@@ -2,8 +2,8 @@ from db.run_sql import run_sql
 from models.product_category import ProductCategory
 
 def save(product_category):
-    sql="INSERT INTO product_categories(name) VALUES (%s) RETURNING id"
-    values=[product_category['name']]
+    sql="INSERT INTO product_categories(name) VALUES (%s) RETURNING *"
+    values=[product_category.name]
     results=run_sql(sql,values)
     product_category.id=results[0]['name']
     return product_category
