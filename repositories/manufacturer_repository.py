@@ -23,7 +23,7 @@ def select(id):
     values=[id]
     results=run_sql(sql,values)[0]
     if results is not None:
-        manufacturer=Manufacturer(results['name'],results['telephone_number'],results['address'])
+        manufacturer=Manufacturer(results['name'],results['telephone_number'],results['address'],results['id'])
     return manufacturer
 
 def delete_all():
