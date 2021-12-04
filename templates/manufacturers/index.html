@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+    <tr>
+        <th><b>Name</b></th>
+        <th>Telephone Number</th>
+        <th>Address</th>
+    </tr>
+    {% for manufacturer in manufacturers %}
+    <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.telephone_number }}</td>
+        <td>{{ manufacturer.address }}</td>
+    {% endfor %}
+    </tr>
+</table>
+{% endblock content %}
