@@ -1,0 +1,6 @@
+{% block content %}
+
+{% for product_category in product_categories %}
+    <a href="/products/{{product_category.name}}">{{ product_category.name }}</a>
+{% endfor %}
+{% endblock content %}

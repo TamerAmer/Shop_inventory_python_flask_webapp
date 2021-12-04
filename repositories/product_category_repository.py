@@ -28,9 +28,9 @@ def delete(id):
 
 def select(id):
     product_category=None
-    sql="SELECT * FROM product categories WHERE id=%s"
+    sql="SELECT * FROM product_categories WHERE id=%s"
     values=[id]
-    results=run_sql(sql,values)
+    results=run_sql(sql,values)[0]
     if results is not None:
         product_category=ProductCategory(results['name'],results['id'])
     return product_category
