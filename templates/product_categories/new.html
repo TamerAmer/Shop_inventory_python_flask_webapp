@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+
+<form action="/product_categories" method="POST">
+  
+    <label for="name">Add a name</label>
+    <textarea name="name" id="name" cols="30" rows="1"></textarea>
+
+    <input class="btn btn--action" type='submit' value="Create Category">
+</form>
+{% endblock content %}
