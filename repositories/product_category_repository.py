@@ -5,7 +5,7 @@ def save(product_category):
     sql="INSERT INTO product_categories(name) VALUES (%s) RETURNING *"
     values=[product_category.name]
     results=run_sql(sql,values)
-    product_category.id=results[0]['name']
+    product_category.id=results[0]['id']
     return product_category
 
 def select_all():

@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
-from models.manufacturer import Manufacturer
+# from models.manufacturer import Manufacturer
 from models.product import Product
-from models.product_category import ProductCategory
+# from models.product_category import ProductCategory
 import repositories.product_category_repository as product_category_repository
 import repositories.manufacturer_repository as manufacturer_repository
 

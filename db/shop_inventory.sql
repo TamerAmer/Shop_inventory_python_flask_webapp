@@ -18,6 +18,7 @@ CREATE TABLE products(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
+    quantity INT,
     purchase_price INT,
     selling_price INT,
     date_and_time VARCHAR(255),
