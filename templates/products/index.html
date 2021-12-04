@@ -10,15 +10,17 @@
         <th>Date and Time</th>
         <th>Manufacturer</th>
     </tr>
-        {% for product in products %}
-            <td>{{ product.product_category.name }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.quantity }}</td>
-            <td>{{ product.purchase_price }}</td>
-            <td>{{ product.selling_price }}</td>
-            <td>{{ product.date_and_time }}</td>
-            <td>{{ product.manufacturer.name }}</td>
-        {% endfor %}
+    {% for product in products %}
+    <tr>
+        <td>{{ product.product_category.name }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.purchase_price }}</td>
+        <td>{{ product.selling_price }}</td>
+        <td>{{ product.date_and_time }}</td>
+        <td>{{ product.manufacturer.name }}</td>
+    {% endfor %}
+    </tr>
 </table>
 {% endblock content %}

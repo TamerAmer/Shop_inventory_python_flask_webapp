@@ -18,9 +18,9 @@ def select_all():
     sql="SELECT * FROM products"
     results=run_sql(sql)
     for row in results:
-        manufacturer=manufacturer_repository.select(row['id'])
-        product_category=product_category_repository.select(row['id'])
-        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],manufacturer,product_category,row['id'])
+        manufacturer=manufacturer_repository.select(row['manufacturer_id'])
+        product_category=product_category_repository.select(row['product_category_id'])
+        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],product_category, manufacturer,row['id'])
         products.append(product)
     return(products)
 
