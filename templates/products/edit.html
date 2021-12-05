@@ -2,12 +2,14 @@
 {% block content %}
 
 <h1>Add a Product</h1>
-<form action="/products" method="post">
+<form action="/products/{{product.id}}" method="post">
 
     <label for="product_category_id">Select a product category:</label>
         <select name="product_category_id" id="product_category_id">
             {% for product_category in product_categories %}
-            <option value="{{ product_category.id }}">{{ product_category.name }}</option>
+            <option value="{{ product_category.id }}" {% if product.product_category.id==product_category.id %}
+            selected="selected"
+            {% endif %}>{{ product_category.name }}</option>
             {% endfor %}
         </select>
   
@@ -18,24 +20,26 @@
     <textarea name="description" id="description" cols="30" rows="1">{{ product.description }}</textarea>
 
     <label for="quantity">Add a quantity</label>
-    <textarea name="quantity" id="quantity" cols="30" rows="1"></textarea>
+    <textarea name="quantity" id="quantity" cols="30" rows="1">{{ product.quantity }}</textarea>
 
     <label for="purchase_price">Add a purchase price</label>
     <textarea name="purchase_price" id="purchase_price" cols="30" rows="1">{{ product.purchase_price }}</textarea>
 
     <label for="selling_price">Add a selling price</label>
-    <textarea name="selling_price" id="selling_price" cols="30" rows="1"></textarea>
+    <textarea name="selling_price" id="selling_price" cols="30" rows="1">{{ product.selling_price }}</textarea>
 
     <label for="date_and_time">Add a date and time</label>
-    <textarea name="date_and_time" id="date_and_time" cols="30" rows="1"></textarea>
+    <textarea name="date_and_time" id="date_and_time" cols="30" rows="1">{{ product.date_and_time }}</textarea>
 
     <label for="manufacturer">Select a manufacturer:</label>
         <select name="manufacturer_id" id="manufacturer">
             {% for manufacturer in manufacturers %}
-            <option value="{{manufacturer.id}}">{{ manufacturer.name }}</option>
+            <option value="{{manufacturer.id}}" {% if product.manufacturer.id==manufacturer.id %}
+                selected="selected"
+            {% endif %}>{{ manufacturer.name }}</option>
             {% endfor %}
         </select>
 
-    <input class="btn" type='submit' value="Add product">
+    <input class="btn" type='submit' value="Edit">
 </form>
 {% endblock content %}

@@ -36,3 +36,8 @@ def update_task(id):
     manufacturer=Manufacturer(name,telephone_number,address,id)
     manufacturer_repository.update(manufacturer)
     return redirect("/manufacturers",)
+
+@manufacturers_blueprint.route("/manufacturers/<id>/delete")
+def delete_task(id):
+    manufacturer_repository.delete(id)
+    return redirect("/manufacturers")

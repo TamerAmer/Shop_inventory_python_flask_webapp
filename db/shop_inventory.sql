@@ -22,6 +22,6 @@ CREATE TABLE products(
     purchase_price INT,
     selling_price INT,
     date_and_time VARCHAR(255),
-    manufacturer_id INT REFERENCES manufacturers(id),
-    product_category_id INT REFERENCES product_categories(id)
+    manufacturer_id INT REFERENCES manufacturers(id) ON DELETE CASCADE,
+    product_category_id INT REFERENCES product_categories(id) ON DELETE CASCADE
 );

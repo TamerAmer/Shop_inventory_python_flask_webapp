@@ -18,11 +18,11 @@ def select_all():
     return product_categories
 
 def delete_all():
-    sql="DELETE * FROM product_categories"
+    sql="DELETE FROM product_categories"
     run_sql(sql)
 
 def delete(id):
-    sql="DELETE * FROM product_categories WHERE id=%s"
+    sql="DELETE FROM product_categories WHERE id=%s"
     values=[id]
     run_sql(sql,values)
 

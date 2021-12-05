@@ -61,7 +61,7 @@ def edit_task(id):
 
 
 
-@products_blueprint("/products/<id>", methods=['POST'])
+@products_blueprint.route("/products/<id>", methods=['POST'])
 def update_task(id):
     name=request.form['name']
     description=request.form['description']
@@ -75,4 +75,9 @@ def update_task(id):
     manufacturer=manufacturer_repository.select(manufacturer_id)
     product=Product(name,description,quantity,purchase_price,selling_price,date_and_time,product_category,manufacturer,id)
     product_repository.update(product)
+    return redirect("/products")
+
+@products_blueprint.route("/products/<id>/delete")
+def delete_task(id):
+    product_repository.delete(id)
     return redirect("/products")

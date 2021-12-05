@@ -24,6 +24,19 @@
         <td>{{ product.selling_price }}</td>
         <td>{{ product.date_and_time }}</td>
         <td>{{ product.manufacturer.name }}</td>
+        <td>
+            {% if  %}
+                
+            {% else %}{% if  %}
+                
+            {% else %}
+                
+            {% endif %}
+                
+            {% endif %}
+        </td>
+        <td><a href="/products/{{product.id}}/edit">Edit</a></td>
+        <td><a href="/products/{{product.id}}/delete">Delete</a></td>
     {% endfor %}
     </tr>
 </table>

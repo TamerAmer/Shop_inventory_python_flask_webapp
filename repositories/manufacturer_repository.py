@@ -27,11 +27,11 @@ def select(id):
     return manufacturer
 
 def delete_all():
-    sql="DELETE * FROM manufacturers"
+    sql="DELETE FROM manufacturers"
     run_sql(sql)
 
 def delete(id):
-    sql="DELETE * FROM manufacturers WHERE id=%s"
+    sql="DELETE FROM manufacturers WHERE id=%s"
     values=[id]
     run_sql(sql,values)
 
