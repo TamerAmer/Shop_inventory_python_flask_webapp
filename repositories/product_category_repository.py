@@ -35,3 +35,8 @@ def select(id):
         product_category=ProductCategory(results['name'],results['id'])
     return product_category
 
+def update(product_category):
+    sql="UPDATE product_categories  SET name = %s WHERE id=%s"
+    values=[product_category.name,product_category.id]
+    run_sql(sql,values)
+

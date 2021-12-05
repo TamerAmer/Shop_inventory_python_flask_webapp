@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a Manufacturer</h1>
+
+<form action="/manufacturers/{{manufacturer.id}}" method="POST">
+  
+    <label for="name">Add a name</label>
+    <textarea name="name" placeholder="{{manufacturer.name}}" id="name" cols="30" rows="1">{{manufacturer.name}}</textarea>
+
+    <label for="telephone_number">Add a telephone number</label>
+    <textarea name="telephone_number" placeholder="{{manufacturer.telephone_number}}" id="telephone_number" cols="30" rows="1">{{manufacturer.telephone_number}}</textarea>
+
+    <label for="address">Add an address</label>
+    <textarea name="address" placeholder="{{manufacturer.address}}" id="address" cols="30" rows="1">{{manufacturer.address}}</textarea>
+
+    <input class="btn btn--action" type='submit' value="Edit">
+</form>
+
+{% endblock %}

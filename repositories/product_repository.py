@@ -43,3 +43,8 @@ def select(id):
         product_category=product_category_repository.select(results['id'])
         product=Product(results['name'],results['description'],results['quantity'],results['purchase_price'],results['selling_price'],results['date_and_time'],manufacturer,product_category,results['id'])
     return product
+
+def update(product):
+    sql="UPDATE products SET (name,description,quantity,purchase_price,selling_price,date_and_time,product_category_id,manufacturer_id) = (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id=%s"
+    values=[product.name,product.description,product.quantity,product.purchase_pruce,product.selling_price,product.date_and_time,product.product_category.id,product.manufacturer.id,product.id]
+    run_sql(sql,values)

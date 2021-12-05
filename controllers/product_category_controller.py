@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.product_category import ProductCategory
 import repositories.product_category_repository as product_category_repository
-import repositories.product_repository as product_repository
 
 product_categories_blueprint = Blueprint("product_categories", __name__)
 
@@ -21,3 +20,21 @@ def create_task():
     product_category=ProductCategory(name)
     product_category_repository.save(product_category)
     return redirect("/product_categories")
+
+@product_categories_blueprint.route("/product_categories/<id>/edit")
+def edit_task(id):
+    product_category=product_category_repository.select(id)
+    return render_template("product_categories/edit.html", product_category=product_category)
+
+@product_categories_blueprint.route("/product_categories/<id>", methods=['POST'])
+def update_task(id):
+    name=request.form['name']
+    product_category=ProductCategory(name,id)
+    product_category_repository.update(product_category)
+    print(product_category.name,product_category.id)
+    return redirect("/product_categories")
+
+@product_categories_blueprint.route("/product_categories/<id>")
+def show_task(id):
+    product_category = product_category_repository.select(id)
+    return render_template('product_categories/show.html', product_category=product_category)

@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<p class="btn--wrapper">
+    <a href="/product_categories/new">New product category</a>
+</p>
+
 {% for product_category in product_categories %}
-    <a href="/products/{{product_category.name}}">{{ product_category.name }}</a>
+    <h2><a href="/products/{{product_category.name}}">{{ product_category.name }}</a></h2>
+    <a href="/product_categories/{{product_category.id}}/edit">Edit</a>
+    <br>
 {% endfor %}
 {% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+
+<form action="/product_categories/{{product_category.id}}" method="post">
+  
+    <label for="name">Change name</label>
+    <textarea name="name" id="name" cols="30" rows="1" placeholder="{{product_category.name}}">{{product_category.name}}</textarea>
+
+    <button type="submit">Edit</button>
+</form>
+{% endblock content %}
