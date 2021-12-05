@@ -13,7 +13,7 @@ def select_all():
     sql="SELECT * FROM manufacturers"
     resuslts=run_sql(sql)
     for row in resuslts:
-        manufacturer=Manufacturer(row['name'],row['telephone_number'],row['address'])
+        manufacturer=Manufacturer(row['name'],row['telephone_number'],row['address'],row['id'])
         manufacturers.append(manufacturer)
     return manufacturers
 

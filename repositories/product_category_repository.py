@@ -13,7 +13,7 @@ def select_all():
     sql="SELECT * FROM product_categories"
     results=run_sql(sql)
     for row in results:
-        product_category=ProductCategory(row['name'])
+        product_category=ProductCategory(row['name'],row['id'])
         product_categories.append(product_category)
     return product_categories
 
