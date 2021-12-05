@@ -4,14 +4,16 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-        <nav>
-            <ul id="navbar">
-                <li><a href="/">Home</a></li>
-                <li><a href="/product_categories">Product Categories</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/manufacturers">Manufacturers</a></li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul id="navbar">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/product_categories">Product Categories</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/manufacturers">Manufacturers</a></li>
+                </ul>
+            </nav>
+        </header>
         {% block content %}
             
         {% endblock content %}

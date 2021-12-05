@@ -12,9 +12,15 @@ html{
     list-style: none;
     size: cover;
 }
-head{
-    background-color: red;
-    border: black;
+header{
+    background-color:rgba(255, 0, 0, 0.815);
+    padding: 1%;
+    text-decoration:  none;
+    color: white;  
+}
+header:visited{
+    text-decoration: none;
+    color: white;
     
 }
 table{
