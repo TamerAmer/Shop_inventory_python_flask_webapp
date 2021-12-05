@@ -2,16 +2,16 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-            <nav>
-                <ul id="navbar">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/product_categories">Product Categories</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/manufacturers">Manufacturers</a></li>
-                </ul>
-            </nav>
     </head>
     <body>
+        <nav>
+            <ul id="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a href="/product_categories">Product Categories</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/manufacturers">Manufacturers</a></li>
+            </ul>
+        </nav>
         {% block content %}
             
         {% endblock content %}

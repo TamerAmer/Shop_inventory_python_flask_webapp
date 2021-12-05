@@ -13,6 +13,7 @@
         <th>Selling Price</th>
         <th>Date and Time</th>
         <th>Manufacturer</th>
+        <th>Stock Level</th>
     </tr>
     {% for product in products %}
     <tr>
@@ -25,14 +26,12 @@
         <td>{{ product.date_and_time }}</td>
         <td>{{ product.manufacturer.name }}</td>
         <td>
-            {% if  %}
-                
-            {% else %}{% if  %}
-                
+            {% if product.quantity<=0 %}
+                <p>Out of stock</p>
+            {% elif product.quantity <=10 %}
+                <p>Low stock</p>
             {% else %}
-                
-            {% endif %}
-                
+                <p>&#9989</p>
             {% endif %}
         </td>
         <td><a href="/products/{{product.id}}/edit">Edit</a></td>
