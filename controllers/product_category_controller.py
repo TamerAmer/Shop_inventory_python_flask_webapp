@@ -43,3 +43,8 @@ def show_task(id):
 def delete_task(id):
     product_category_repository.delete(id)
     return redirect("/product_categories")
+
+@product_categories_blueprint.route("/product_categories/<id>/show")
+def show_products(id):
+    products=product_category_repository.select_category(id)
+    return render_template("products/index.html", products=products)

@@ -41,3 +41,8 @@ def update_task(id):
 def delete_task(id):
     manufacturer_repository.delete(id)
     return redirect("/manufacturers")
+    
+@manufacturers_blueprint.route("/manufacturers/<id>/show")
+def show_products(id):
+    products=manufacturer_repository.select_manufacturer(id)
+    return render_template("products/index.html", products=products)

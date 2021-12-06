@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
+<div id="vertical-navbar">
+    <nav>
+        <ul>
+            <li>
+                <form action="/product_categories/{{product.product_category.name}}/show">
+                <h2>Search by product category</h2>
+                <label for="product_category_id">Select a product category:</label>
+
+                <select name="product_category_id" id="product_category_id">
+                    {% for product in products %}
+                    <option value="{{ product.product_category.name }}">{{ product.product_category.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Search">
+                </form>
+            </li>
+
+        </ul>
+    </nav>
+   
+</div>
+<div>
 <p class="btn">
     <a class="btn" href="/products/new">New Product</a>
 </p>
@@ -24,7 +46,7 @@
         <td>{{ product.purchase_price }}</td>
         <td>{{ product.selling_price }}</td>
         <td>{{ product.date_and_time }}</td>
-        <td>{{ product.manufacturer.name }}</td>
+        <td>a{{ product.manufacturer.name }}</td>
         <td>
             {% if product.quantity<=0 %}
                 <p>Out of stock</p>
@@ -39,4 +61,5 @@
     {% endfor %}
     </tr>
 </table>
+</div>
 {% endblock content %}

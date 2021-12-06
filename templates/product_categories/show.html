@@ -1,5 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>{{ product_category.name }}</p>
-
+<table>
+    <tr>
+        <th><b>Category</b></th>
+        <th><b>Name</b></th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Purchase Price</th>
+        <th>Selling Price</th>
+        <th>Date and Time</th>
+        <th>Manufacturer</th>
+        <th>Stock Level</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{ product.product_category.name }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.purchase_price }}</td>
+        <td>{{ product.selling_price }}</td>
+        <td>{{ product.date_and_time }}</td>
+        <td>{{ product.manufacturer.name }}</td>
+        <td>
+            {% if product.quantity<=0 %}
+                <p>Out of stock</p>
+            {% elif product.quantity <=10 %}
+                <p>Low stock</p>
+            {% else %}
+                <p>&#9989</p>
+            {% endif %}
+        </td>
+        <td><a href="/products/{{product.id}}/edit">Edit</a></td>
+        <td><a href="/products/{{product.id}}/delete">Delete</a></td>
+    {% endfor %}
+    </tr>
+</table>
 {% endblock content %}

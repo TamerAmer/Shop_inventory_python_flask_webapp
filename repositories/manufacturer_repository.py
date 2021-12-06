@@ -1,5 +1,7 @@
 from db.run_sql import run_sql
 from models.manufacturer import Manufacturer
+import repositories.product_category_repository as product_category_repository
+from models.product import Product
 
 def save(manufacturer):
     sql="INSERT INTO manufacturers(name,telephone_number,address) VALUES (%s,%s,%s) RETURNING *"
@@ -39,3 +41,15 @@ def update(manufacturer):
     sql="UPDATE manufacturers SET (name,telephone_number,address)=(%s,%s,%s) WHERE id=%s"
     values=[manufacturer.name,manufacturer.telephone_number,manufacturer.address,manufacturer.id]
     run_sql(sql,values)
+
+def select_manufacturer(id):
+    products=[]
+    sql="SELECT * FROM products WHERE manufacturer_id=%s"
+    values=[id]
+    results=run_sql(sql,values)
+    for row in results:
+        manufacturer=select(row['manufacturer_id'])
+        product_category=product_category_repository.select(row['product_category_id'])
+        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],product_category, manufacturer,row['id'])
+        products.append(product)
+    return products

@@ -1,5 +1,9 @@
 from db.run_sql import run_sql
 from models.product_category import ProductCategory
+from models.product import Product
+from models.manufacturer import Manufacturer
+import repositories.product_repository as product_repository
+import repositories.manufacturer_repository as manufacturer_repository
 
 def save(product_category):
     sql="INSERT INTO product_categories(name) VALUES (%s) RETURNING *"
@@ -40,3 +44,16 @@ def update(product_category):
     values=[product_category.name,product_category.id]
     run_sql(sql,values)
 
+def select_category(id):
+    products=[]
+    sql="SELECT * FROM products WHERE product_category_id=%s"
+    values=[id]
+    results=run_sql(sql,values)
+    for row in results:
+        manufacturer=manufacturer_repository.select(row['manufacturer_id'])
+        print(manufacturer.name)
+        product_category=select(row['product_category_id'])
+        print(product_category.name)
+        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],product_category, manufacturer,row['id'])
+        products.append(product)
+    return products
