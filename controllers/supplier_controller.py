@@ -21,7 +21,7 @@ def create_supplier():
     total_orders=request.form['total_orders']
     pending_orders=request.form['pending_orders']
     outstanding_balance=request.form['outstanding_balance']
-    telephone_number=request.form['thelephone_number']
+    telephone_number=request.form['telephone_number']
     address=request.form['address']
     supplier=Supplier(name,total_orders,pending_orders,outstanding_balance,telephone_number,address)
     supplier_repository.save(supplier)
@@ -38,7 +38,7 @@ def update_supplier(id):
     total_orders=request.form['total_orders']
     pending_orders=request.form['pending_orders']
     outstanding_balance=request.form['outstanding_balance']
-    telephone_number=request.form['thelephone_number']
+    telephone_number=request.form['telephone_number']
     address=request.form['address']
     supplier=Supplier(name,total_orders,pending_orders,outstanding_balance,telephone_number,address,id)
     supplier_repository.update(supplier)
