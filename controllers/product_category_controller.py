@@ -46,5 +46,10 @@ def delete_task(id):
 
 @product_categories_blueprint.route("/product_categories/<id>/show")
 def show_products(id):
+    product_categories=product_category_repository.select_all()
     products=product_category_repository.select_category(id)
-    return render_template("products/index.html", products=products)
+    return render_template("products/index.html", products=products,product_categories=product_categories)
+
+@product_categories_blueprint.route("/product_categories/filter_results", methods=['POST'])
+def filter_products():
+    print(request.form['product_catergory_id'])

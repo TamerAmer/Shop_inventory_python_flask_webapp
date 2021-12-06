@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from controllers.manufacturer_controller import product_categories
 from models.product import Product
 import repositories.product_repository as product_repository
 import repositories.manufacturer_repository as manufacturer_repository
@@ -10,8 +11,9 @@ products_blueprint = Blueprint("products", __name__)
 
 @products_blueprint.route("/products")
 def products():
+    product_categories=product_category_repository.select_all()
     products = product_repository.select_all()
-    return render_template("products/index.html", products=products)
+    return render_template("products/index.html", products=products,product_categories=product_categories)
 
 
 @products_blueprint.route("/products/new")

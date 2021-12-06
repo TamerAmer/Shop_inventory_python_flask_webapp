@@ -4,15 +4,16 @@
     <nav>
         <ul>
             <li>
-                <form action="/product_categories/{{product.product_category.name}}/show">
+                <form action="/product_categories/filter_results" method="post">
                 <h2>Search by product category</h2>
                 <label for="product_category_id">Select a product category:</label>
 
                 <select name="product_category_id" id="product_category_id">
-                    {% for product in products %}
-                    <option value="{{ product.product_category.name }}">{{ product.product_category.name }}</option>
+                    {% for product_category in product_categories %}
+                    <option name="category" value="{{ product_category.id }}">{{ product_category.name }}</option>
                     {% endfor %}
                 </select>
+
                 <input type="submit" value="Search">
                 </form>
             </li>
