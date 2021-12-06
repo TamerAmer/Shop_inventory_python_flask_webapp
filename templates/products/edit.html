@@ -40,6 +40,15 @@
             {% endfor %}
         </select>
 
+    <label for="supplier">Select a manufacturer:</label>
+        <select name="manufacturer_id" id="manufacturer">
+            {% for manufacturer in suppliers %}
+                <option value="{{manufacturer.id}}" {% if product.manufacturer.id==manufacturer.id %}
+                    selected="selected"
+                {% endif %}>{{ manufacturer.name }}</option>
+            {% endfor %}
+        </select>
+
     <input class="btn" type='submit' value="Edit">
 </form>
 {% endblock content %}

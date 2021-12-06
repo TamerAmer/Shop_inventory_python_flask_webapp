@@ -7,10 +7,11 @@ from controllers.supplier_controller import suppliers_blueprint
 
 app = Flask(__name__)
 
+app.register_blueprint(suppliers_blueprint)
 app.register_blueprint(manufacturers_blueprint)
 app.register_blueprint(product_categories_blueprint)
 app.register_blueprint(products_blueprint)
-app.register_blueprint(suppliers_blueprint)
+
 
 @app.route('/')
 def home():

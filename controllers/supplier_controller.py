@@ -4,7 +4,7 @@ from models.supplier import Supplier
 import repositories.supplier_repository as supplier_repository
 import repositories.manufacturer_repository as manufacturer_repository
 
-suppliers_blueprint = Blueprint("suppliers", __name__)
+suppliers_blueprint=Blueprint("suppliers", __name__)
 
 @suppliers_blueprint.route("/suppliers")
 def suppliers():

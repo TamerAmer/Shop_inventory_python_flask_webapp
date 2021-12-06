@@ -4,10 +4,11 @@ from models.product import Product
 # from models.product_category import ProductCategory
 import repositories.product_category_repository as product_category_repository
 import repositories.manufacturer_repository as manufacturer_repository
+import repositories.supplier_repository as supplier_repository
 
 def save(product):
-    sql="INSERT INTO products(name, description, quantity, purchase_price, selling_price, date_and_time, manufacturer_id, product_category_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) RETURNING *"
-    values=[product.name,product.description,product.quantity,product.purchase_price,product.selling_price,product.date_and_time,product.manufacturer.id,product.product_category.id]
+    sql="INSERT INTO products(name, description, quantity, purchase_price, selling_price, date_and_time, manufacturer_id, product_category_id, supplier_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING *"
+    values=[product.name,product.description,product.quantity,product.purchase_price,product.selling_price,product.date_and_time,product.manufacturer.id,product.product_category.id,product.supplier.id]
     results=run_sql(sql,values)
     id=results[0]['id']
     product.id=id
@@ -18,9 +19,10 @@ def select_all():
     sql="SELECT * FROM products"
     results=run_sql(sql)
     for row in results:
+        supplier=supplier_repository.select(row['supplier_id'])
         manufacturer=manufacturer_repository.select(row['manufacturer_id'])
         product_category=product_category_repository.select(row['product_category_id'])
-        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer,row['id'])
+        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer, supplier,row['id'])
         products.append(product)
     return(products)
 
@@ -39,12 +41,13 @@ def select(id):
     values=[id]
     results=run_sql(sql,values)[0]
     if results is not None:
+        supplier=supplier_repository.select(results['supplier_id'])
         manufacturer=manufacturer_repository.select(results['manufacturer_id'])
         product_category=product_category_repository.select(results['product_category_id'])
-        product=Product(results['name'],results['description'],results['quantity'],results['purchase_price'],results['selling_price'],results['date_and_time'],manufacturer,product_category,results['id'])
+        product=Product(results['name'],results['description'],results['quantity'],results['purchase_price'],results['selling_price'],results['date_and_time'],product_category,manufacturer,supplier,results['id'])
     return product
 
 def update(product):
-    sql="UPDATE products SET (name,description,quantity,purchase_price,selling_price,date_and_time,product_category_id,manufacturer_id) = (%s,%s,%s,%s,%s,%s,%s,%s) WHERE id=%s"
-    values=[product.name,product.description,product.quantity,product.purchase_price,product.selling_price,product.date_and_time,product.product_category.id,product.manufacturer.id,product.id]
+    sql="UPDATE products SET (name,description,quantity,purchase_price,selling_price,date_and_time,product_category_id,manufacturer_id,supplier_id) = (%s,%s,%s,%s,%s,%s,%s,%s,%s) WHERE id=%s"
+    values=[product.name,product.description,product.quantity,product.purchase_price,product.selling_price,product.date_and_time,product.product_category.id,product.manufacturer.id,product.supplier.id,product.id]
     run_sql(sql,values)

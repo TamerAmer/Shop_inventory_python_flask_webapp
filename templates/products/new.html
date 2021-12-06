@@ -35,6 +35,13 @@
                 <option value="{{manufacturer.id}}">{{ manufacturer.name }}</option>
                 {% endfor %}
             </select>
+        
+        <label for="supplier">Select a supplier:</label>
+            <select name="supplier_id" id="supplier">
+                {% for supplier in suppliers %}
+                <option value="{{supplier.id}}">{{ supplier.name }}</option>
+                {% endfor %}
+            </select>
 
         <input class="btn" type='submit' value="Add product">
     </form>

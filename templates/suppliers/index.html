@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<p class="btn">
+    <a href="/suppliers/new">New supplier</a>
+</p>
+<table>
+    <tr>
+        <th><b>Name</b></th>
+        <th>Total Orders</th>
+        <th>Pending Orders</th>
+        <th>Outstanding Balance</th>
+        <th>Telephone Number</th>
+        <th>Address</th>
+    </tr>
+    {% for supplier in suppliers %}
+    <tr>
+        <td>{{ supplier.name }}</td>
+        <td>{{ supplier.total_orders }}</td>
+        <td>{{ supplier.pending_orders }}</td>
+        <td>{{ supplier.outstanding_balance }}</td>
+        <td>{{ supplier.telephone_number }}</td>
+        <td>{{ supplier.address }}</td>
+        <td><a href="/suppliers/{{supplier.id}}/edit">Edit</a></td>
+        <td><a href="/suppliers/{{supplier.id}}/delete">Delete</a></td>
+    {% endfor %}
+    </tr>
+</table>
+{% endblock content %}

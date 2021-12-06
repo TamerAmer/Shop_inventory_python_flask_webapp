@@ -1,13 +1,11 @@
 from db.run_sql import run_sql
-from models.product_category import ProductCategory
 from models.product import Product
-from models.manufacturer import Manufacturer
 from models.supplier import Supplier
 import repositories.product_category_repository as product_category_repository
 import repositories.manufacturer_repository as manufacturer_repository
 
 def save(supplier):
-    sql="INSERT INTO suppliers (name,total_orders,pending_orders,outstanding_balance,telephone_number,address) VALUES (%s,%s,%s,%s,%s,%s) RETURNING *"
+    sql="INSERT INTO suppliers(name,total_orders,pending_orders,outstanding_balance,telephone_number,address) VALUES (%s,%s,%s,%s,%s,%s) RETURNING *"
     values=[supplier.name,supplier.total_orders,supplier.pending_orders,supplier.outstanding_balance,supplier.telephone_number,supplier.address]
     results=run_sql(sql,values)
     supplier.id=results[0]['id']

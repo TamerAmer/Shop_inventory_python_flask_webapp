@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+
+<form action="/suppliers/{{supplier.id}}" method="post">
+  
+    <label for="name">Change name</label>
+    <textarea name="name" id="name" cols="30" rows="1" placeholder="{{supplier.name}}">{{supplier.name}}</textarea>
+
+    <label for="total_orders">Change total orders</label>
+    <textarea name="total_orders" id="total_orders" cols="30" rows="1" placeholder="{{supplier.total_orders}}">{{supplier.total_orders}}</textarea>
+
+    <label for="pending_orders">Change pending orders</label>
+    <textarea name="pending_orders" id="pending_orders" cols="30" rows="1" placeholder="{{supplier.pending_orders}}">{{supplier.pending_orders}}</textarea>
+
+    <label for="outstanding_balance">Change outstanding balance</label>
+    <textarea name="outstanding_balance" id="outstanding_balance" cols="30" rows="1" placeholder="{{supplier.outstanding_balance}}">{{supplier.outstanding_balance}}</textarea>
+
+    <label for="telephone_number">Change telephone number</label>
+    <textarea name="telephone_number" id="telephone_number" cols="30" rows="1" placeholder="{{supplier.telephone_number}}">{{supplier.telephone_number}}</textarea>
+
+    <label for="address">Change address</label>
+    <textarea name="address" id="address" cols="30" rows="1" placeholder="{{supplier.address}}">{{supplier.address}}</textarea>
+
+    <button type="submit">Edit</button>
+</form>
+{% endblock content %}

@@ -32,6 +32,20 @@
                     <input type="submit" value="Search">
                     </form>
             </li>
+            <li>
+                <form action="/suppliers/filter_results" method="post">
+                    <p><b>Filter products by category</b></p>
+                    <label for="supplier_id"></label>
+                
+                    <select name="supplier_id" id="supplier_id">
+                        {% for supplier in suppliers %}
+                        <option  value="{{ supplier.id }}">{{ supplier.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <input type="submit" value="Search">
+                </form>
+            </li>
 
         </ul>
     </nav>
@@ -46,6 +60,7 @@
                 <th>Selling Price</th>
                 <th>Date and Time</th>
                 <th>Manufacturer</th>
+                <th>Supplier</th>
                 <th>Stock Level</th>
             </tr>
             {% for product in products %}
@@ -58,6 +73,7 @@
                 <td>£{{ product.selling_price }}</td>
                 <td>{{ product.date_and_time }}</td>
                 <td>{{ product.manufacturer.name }}</td>
+                <td>{{ product.supplier.name }}</td>
                 <td>
                     {% if product.quantity<=0 %}
                         <p>Out of stock</p>
