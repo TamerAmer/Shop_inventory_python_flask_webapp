@@ -1,66 +1,77 @@
 {% extends 'base.html' %}
 {% block content %}
+<a class="btn" href="/products/new">New Product</a>
 <div id="vertical-navbar" class="main_products">
     <nav>
         <ul>
             <li>
                 <form action="/product_categories/filter_results" method="post">
-                <h2>Search by product category</h2>
-                <label for="product_category_id">Select a product category:</label>
+                <p><b>Filter products by category</b></p>
+                <label for="product_category_id"></label>
 
                 <select name="product_category_id" id="product_category_id">
                     {% for product_category in product_categories %}
                     <option  value="{{ product_category.id }}">{{ product_category.name }}</option>
                     {% endfor %}
                 </select>
-
+                <br>
                 <input type="submit" value="Search">
                 </form>
+            </li>
+            <li>
+                <form action="/manufacturers/filter_results" method="post">
+                    <p><b>Filter products by manufacturer</b></p>
+                    <label for="product_category_id"></label>
+    
+                    <select name="manufacturer_id" id="manufacturer_id">
+                        {% for manufacturer in manufacturers %}
+                        <option  value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <input type="submit" value="Search">
+                    </form>
             </li>
 
         </ul>
     </nav>
-   
-</div>
-<div class="main_products">
-<p class="btn">
-    <a class="btn" href="/products/new">New Product</a>
-</p>
-<table>
-    <tr>
-        <th><b>Category</b></th>
-        <th><b>Name</b></th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Purchase Price</th>
-        <th>Selling Price</th>
-        <th>Date and Time</th>
-        <th>Manufacturer</th>
-        <th>Stock Level</th>
-    </tr>
-    {% for product in products %}
-    <tr>
-        <td>{{ product.product_category.name }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.quantity }}</td>
-        <td>{{ product.purchase_price }}</td>
-        <td>{{ product.selling_price }}</td>
-        <td>{{ product.date_and_time }}</td>
-        <td>a{{ product.manufacturer.name }}</td>
-        <td>
-            {% if product.quantity<=0 %}
-                <p>Out of stock</p>
-            {% elif product.quantity <=10 %}
-                <p>Low stock</p>
-            {% else %}
-                <p>&#9989</p>
-            {% endif %}
-        </td>
-        <td><a href="/products/{{product.id}}/edit">Edit</a></td>
-        <td><a href="/products/{{product.id}}/delete">Delete</a></td>
-    {% endfor %}
-    </tr>
-</table>
+    <div>
+        <table>
+            <tr>
+                <th><b>Category</b></th>
+                <th><b>Name</b></th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Purchase Price</th>
+                <th>Selling Price</th>
+                <th>Date and Time</th>
+                <th>Manufacturer</th>
+                <th>Stock Level</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.product_category.name }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>£{{ product.purchase_price }}</td>
+                <td>£{{ product.selling_price }}</td>
+                <td>{{ product.date_and_time }}</td>
+                <td>{{ product.manufacturer.name }}</td>
+                <td>
+                    {% if product.quantity<=0 %}
+                        <p>Out of stock</p>
+                    {% elif product.quantity <=10 %}
+                        <p>Low stock</p>
+                    {% else %}
+                        <p>&#9989</p>
+                    {% endif %}
+                </td>
+                <td><a href="/products/{{product.id}}/edit">Edit</a></td>
+                <td><a href="/products/{{product.id}}/delete">Delete</a></td>
+            {% endfor %}
+            </tr>
+        </table>
+    </div>
 </div>
 {% endblock content %}

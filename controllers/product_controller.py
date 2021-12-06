@@ -11,9 +11,10 @@ products_blueprint = Blueprint("products", __name__)
 
 @products_blueprint.route("/products")
 def products():
+    manufacturers=manufacturer_repository.select_all()
     product_categories=product_category_repository.select_all()
     products = product_repository.select_all()
-    return render_template("products/index.html", products=products,product_categories=product_categories)
+    return render_template("products/index.html", products=products,product_categories=product_categories, manufacturers=manufacturers)
 
 
 @products_blueprint.route("/products/new")
@@ -45,7 +46,7 @@ def create_task():
         name,
         description,
         quantity,
-        purchase_price,
+        int(purchase_price)/100,
         selling_price,
         date_and_time,
         product_category,

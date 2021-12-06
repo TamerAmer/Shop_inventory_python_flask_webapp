@@ -13,14 +13,19 @@ html{
     size: cover;
 }
 header{
-    background-color:rgba(255, 0, 0, 0.815);
+    background-color:rgba(179, 0, 0, 0.815);
     padding: 1%;
-    text-decoration: none; 
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header>nav>ul>li>a:visited{
+    color: white;
 }
 
 table{
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    align-items: center;
+    width: 50%;
 }
 a:visited{
     text-decoration-style:none;
@@ -30,21 +35,39 @@ a{
     text-decoration-style:none;
     color: black;
 }
-#vertical-navbar>ul {
+#vertical-navbar>nav>ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    padding-left: 0;
+    padding-top: 10px;
+    padding-bottom: 100%;
   }
   
 #vertical-navbar>ul>li a {
-    display: block;
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
 }
 .main_products{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction:row;
+    align-items: flex-start;
+
+}
+#vertical-navbar>nav{
+    padding: 0;
+    margin: 0;
+}
+#vertical-navbar>nav>ul{
+    width: 50%;
+    margin-right: 0;
+    background-color: rgba(85, 70, 70, 0.733);
+}
+#new-product{
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    justify-content: center;
+    margin-left: 44%;
 }

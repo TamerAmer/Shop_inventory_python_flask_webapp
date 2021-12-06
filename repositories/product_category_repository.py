@@ -54,6 +54,6 @@ def select_category(id):
         print(manufacturer.name)
         product_category=select(row['product_category_id'])
         print(product_category.name)
-        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],product_category, manufacturer,row['id'])
+        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer,row['id'])
         products.append(product)
     return products

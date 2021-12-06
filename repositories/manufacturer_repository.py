@@ -50,6 +50,6 @@ def select_manufacturer(id):
     for row in results:
         manufacturer=select(row['manufacturer_id'])
         product_category=product_category_repository.select(row['product_category_id'])
-        product=Product(row['name'],row['description'],row['quantity'],row['purchase_price'],row['selling_price'],row['date_and_time'],product_category, manufacturer,row['id'])
+        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer,row['id'])
         products.append(product)
     return products

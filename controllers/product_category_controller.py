@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.product_category import ProductCategory
 import repositories.product_category_repository as product_category_repository
+import repositories.manufacturer_repository as manufacturer_repository
 
 product_categories_blueprint = Blueprint("product_categories", __name__)
 
@@ -46,9 +47,10 @@ def delete_task(id):
 
 @product_categories_blueprint.route("/product_categories/<id>/show")
 def show_products(id):
+    manufacturers=manufacturer_repository.select_all()
     product_categories=product_category_repository.select_all()
     products=product_category_repository.select_category(id)
-    return render_template("products/index.html", products=products,product_categories=product_categories)
+    return render_template("products/index.html", products=products,product_categories=product_categories,manufacturers=manufacturers)
 
 @product_categories_blueprint.route("/product_categories/filter_results", methods=['POST'])
 def filter_products():
