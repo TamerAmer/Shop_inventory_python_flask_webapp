@@ -52,4 +52,5 @@ def show_products(id):
 
 @product_categories_blueprint.route("/product_categories/filter_results", methods=['POST'])
 def filter_products():
-    print(request.form['product_catergory_id'])
+    product_category_id=request.form['product_category_id']
+    return redirect(f"/product_categories/{product_category_id}/show")

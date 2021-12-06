@@ -44,3 +44,7 @@ a{
     padding: 8px 16px;
     text-decoration: none;
 }
+.main_products{
+    display: flex;
+    flex-wrap: wrap;
+}

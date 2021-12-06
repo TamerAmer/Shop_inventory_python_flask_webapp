@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div id="vertical-navbar">
+<div id="vertical-navbar" class="main_products">
     <nav>
         <ul>
             <li>
@@ -10,7 +10,7 @@
 
                 <select name="product_category_id" id="product_category_id">
                     {% for product_category in product_categories %}
-                    <option name="category" value="{{ product_category.id }}">{{ product_category.name }}</option>
+                    <option  value="{{ product_category.id }}">{{ product_category.name }}</option>
                     {% endfor %}
                 </select>
 
@@ -22,7 +22,7 @@
     </nav>
    
 </div>
-<div>
+<div class="main_products">
 <p class="btn">
     <a class="btn" href="/products/new">New Product</a>
 </p>
