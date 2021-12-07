@@ -6,16 +6,16 @@
         <ul>
             <li>
                 <form action="/product_categories/filter_results" method="post">
-                <p><b>Filter products by category</b></p>
-                <label for="product_category_id"></label>
+                    <p><b>Filter products by category</b></p>
+                    <label for="product_category_id"></label>
 
-                <select name="product_category_id" id="product_category_id">
-                    {% for product_category in product_categories %}
-                    <option  value="{{ product_category.id }}">{{ product_category.name }}</option>
-                    {% endfor %}
-                </select>
-                <br>
-                <input type="submit" value="Search">
+                    <select name="product_category_id" id="product_category_id">
+                        {% for product_category in product_categories %}
+                        <option  value="{{ product_category.id }}">{{ product_category.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <input type="submit" value="Search">
                 </form>
             </li>
             <li>
@@ -30,7 +30,7 @@
                     </select>
                     <br>
                     <input type="submit" value="Search">
-                    </form>
+                </form>
             </li>
             <li>
                 <form action="/suppliers/filter_results" method="post">

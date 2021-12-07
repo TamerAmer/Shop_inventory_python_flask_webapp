@@ -4,6 +4,7 @@ from models.product import Product
 from models.manufacturer import Manufacturer
 import repositories.product_repository as product_repository
 import repositories.manufacturer_repository as manufacturer_repository
+import repositories.supplier_repository as supplier_repository
 
 def save(product_category):
     sql="INSERT INTO product_categories(name) VALUES (%s) RETURNING *"
@@ -50,10 +51,9 @@ def select_category(id):
     values=[id]
     results=run_sql(sql,values)
     for row in results:
+        supplier=supplier_repository.select(row['supplier_id'])
         manufacturer=manufacturer_repository.select(row['manufacturer_id'])
-        print(manufacturer.name)
         product_category=select(row['product_category_id'])
-        print(product_category.name)
-        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer,row['id'])
+        product=Product(row['name'],row['description'],row['quantity'],"{:.2f}".format(int(row['purchase_price'])/100),"{:.2f}".format(int(row['selling_price'])/100),row['date_and_time'],product_category, manufacturer,supplier,row['id'])
         products.append(product)
     return products
