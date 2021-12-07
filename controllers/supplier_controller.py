@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from controllers.product_category_controller import product_categories
 from models.supplier import Supplier
 import repositories.supplier_repository as supplier_repository
 import repositories.manufacturer_repository as manufacturer_repository
+import repositories.product_category_repository as product_category_repository
 
 suppliers_blueprint=Blueprint("suppliers", __name__)
 
@@ -56,10 +58,11 @@ def delete_supplier(id):
 
 @suppliers_blueprint.route("/suppliers/<id>/show")
 def show_products(id):
+    product_categories=product_category_repository.select_all()
     manufacturers=manufacturer_repository.select_all()
     suppliers=supplier_repository.select_all()
     products=supplier_repository.select_category(id)
-    return render_template("products/index.html", products=products,suppliers=suppliers,manufacturers=manufacturers)
+    return render_template("products/index.html", products=products,suppliers=suppliers,manufacturers=manufacturers, product_categories=product_categories)
 
 @suppliers_blueprint.route("/suppliers/filter_results", methods=['POST'])
 def filter_products():

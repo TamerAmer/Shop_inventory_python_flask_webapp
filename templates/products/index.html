@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<a class="btn" href="/products/new">New Product</a>
+<a class="btn" href="/products/new">Add New Product</a>
+<form action="/products/sort/filter_sort" method="post">
+    <label for="sort">Sort By:</label>
+    <select name="sort" id="sort">
+        <option value="sort_by_category">Category &#11014</option>
+        <option value="sort_by_category_desc">Category &#11015</option>
+        <option value="sort_by_name">Name &#11014</option>
+        <option value="sort_by_name_desc">Name &#11015</option>
+        <option value="sort_by_supplier">Supplier &#11014</option>
+        <option value="sort_by_supplier_desc">Supplier &#11015</option>
+        <option value="sort_by_manufacturer">Manufacturer &#11014</option>
+        <option value="sort_by_manufacturer_desc">Manufacturer &#11015</option>    
+    </select>
+    <input type="submit" value="Sort">
+</form>
 <div id="vertical-navbar" class="main_products">
     <nav>
         <ul>
             <li>
                 <form action="/product_categories/filter_results" method="post">
-                    <p><b>Filter products by category</b></p>
+                    <p><b>Filter products by Category</b></p>
                     <label for="product_category_id"></label>
 
                     <select name="product_category_id" id="product_category_id">
@@ -20,7 +34,7 @@
             </li>
             <li>
                 <form action="/manufacturers/filter_results" method="post">
-                    <p><b>Filter products by manufacturer</b></p>
+                    <p><b>Filter products by Manufacturer</b></p>
                     <label for="product_category_id"></label>
     
                     <select name="manufacturer_id" id="manufacturer_id">
@@ -34,7 +48,7 @@
             </li>
             <li>
                 <form action="/suppliers/filter_results" method="post">
-                    <p><b>Filter products by category</b></p>
+                    <p><b>Filter products by Supplier</b></p>
                     <label for="supplier_id"></label>
                 
                     <select name="supplier_id" id="supplier_id">
@@ -50,6 +64,7 @@
         </ul>
     </nav>
     <div>
+        
         <table>
             <tr>
                 <th><b>Category</b></th>

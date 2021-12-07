@@ -31,7 +31,7 @@
     <label for="date_and_time">Add a date and time</label>
     <textarea name="date_and_time" id="date_and_time" cols="30" rows="1">{{ product.date_and_time }}</textarea>
 
-    <label for="manufacturer">Select a manufacturer:</label>
+    <label for="manufacturer">Select a Manufacturer:</label>
         <select name="manufacturer_id" id="manufacturer">
             {% for manufacturer in manufacturers %}
             <option value="{{manufacturer.id}}" {% if product.manufacturer.id==manufacturer.id %}
@@ -40,12 +40,12 @@
             {% endfor %}
         </select>
 
-    <label for="supplier">Select a manufacturer:</label>
+    <label for="supplier">Select a Supplier:</label>
         <select name="manufacturer_id" id="manufacturer">
-            {% for manufacturer in suppliers %}
-                <option value="{{manufacturer.id}}" {% if product.manufacturer.id==manufacturer.id %}
+            {% for supplier in suppliers %}
+                <option value="{{supplier.id}}" {% if product.supplier.id==supplier.id %}
                     selected="selected"
-                {% endif %}>{{ manufacturer.name }}</option>
+                {% endif %}>{{ supplier.name }}</option>
             {% endfor %}
         </select>
 

@@ -16,7 +16,7 @@ def select_all():
     sql="SELECT * FROM suppliers"
     results=run_sql(sql)
     for row in results:
-        supplier=Supplier(row['name'],row['total_orders'],row['pending_orders'],row['outstanding_balance'],row['telephone_number'],row['address'],row['id'])
+        supplier=Supplier(row['name'],row['total_orders'],row['pending_orders'],"{:.2f}".format(int(row['outstanding_balance'])/100),row['telephone_number'],row['address'],row['id'])
         suppliers.append(supplier)
     return suppliers
 
@@ -35,7 +35,7 @@ def select(id):
     values=[id]
     results=run_sql(sql,values)[0]
     if results is not None:
-        supplier=Supplier(results['name'],results['total_orders'],results['pending_orders'],results['outstanding_balance'],results['telephone_number'],results['address'],results['id'])
+        supplier=Supplier(results['name'],results['total_orders'],results['pending_orders'],"{:.2f}".format(int(results['outstanding_balance'])/100),results['telephone_number'],results['address'],results['id'])
     return supplier
 
 def update(supplier):

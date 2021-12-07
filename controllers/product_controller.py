@@ -115,3 +115,17 @@ def update_product(id):
 def delete_product(id):
     product_repository.delete(id)
     return redirect("/products")
+
+@products_blueprint.route("/products/sort/filter_sort", methods=['POST'])
+def filiter_sort():
+    sort=request.form['sort']
+    return redirect(f"/products/{sort}/sort")
+
+@products_blueprint.route("/products/<sort>/sort")
+def show_products(sort):
+    manufacturers = manufacturer_repository.select_all()
+    product_categories = product_category_repository.select_all()
+    suppliers = supplier_repository.select_all()
+    method_to_call=getattr(product_repository,sort)
+    results=method_to_call()
+    return render_template("products/index.html", products=results, manufacturers=manufacturers, suppliers=suppliers, product_categories=product_categories)
