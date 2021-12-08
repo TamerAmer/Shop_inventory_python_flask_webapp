@@ -1,10 +1,14 @@
 html{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#home-container{
     background-image: url(images/wallnuts.jpeg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position:center;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    background-size: 40% 50%;
+    height: 100vh;
 }
 #navbar{
     display: flex;
@@ -14,7 +18,7 @@ html{
     size: cover;
 }
 header{
-    background-color:rgba(179, 0, 0, 0.815);
+    background-color:rgb(179, 0, 0);
     padding: 1%;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
@@ -136,6 +140,7 @@ footer{
     bottom: 0;
     width: 100%;
     background-color: rgb(179, 0, 0);
+    color: white;
 }
 #vertical-navbar-home>nav>ul {
     list-style-type: none;
