@@ -119,6 +119,7 @@ a{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    
 }
 #suppiler-table{
     display: flex;
