@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Add a Manufacturer</h1>
 
-<form action="/manufacturers/{{manufacturer.id}}" method="POST">
+<form action="/manufacturers/{{manufacturer.id}}" method="POST" id="edit-manufacturer">
   
     <label for="name">Add a name</label>
     <textarea name="name" placeholder="{{manufacturer.name}}" id="name" cols="30" rows="1">{{manufacturer.name}}</textarea>

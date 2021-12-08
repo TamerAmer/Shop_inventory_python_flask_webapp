@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     
-<form action="/suppliers" method="post">
+<form action="/suppliers" method="post" id="new-supplier">
   
     <label for="name">Change name</label>
     <textarea name="name" id="name" cols="30" rows="1"></textarea>
@@ -21,6 +21,6 @@
     <label for="address">Change address</label>
     <textarea name="address" id="address" cols="30" rows="1"></textarea>
 
-    <button type="submit">Edit</button>
+    <button type="submit">Add New Supplier</button>
 </form>
 {% endblock content %}

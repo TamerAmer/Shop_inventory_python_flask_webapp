@@ -4,12 +4,13 @@
 <p class="btn--wrapper">
     <a href="/product_categories/new">New product category</a>
 </p>
-<div id="test">
-    {% for product_category in product_categories %}
-        <h2><a href="/product_categories/{{product_category.id}}/show">{{ product_category.name }}</a></h2>
-        <a href="/product_categories/{{product_category.id}}/edit">Edit</a>
-        <a href="/product_categories/{{product_category.id}}//delete">Delete</a>
-        <br>
+<div class="product-categories"></div>
+{% for product_category in product_categories %}
+
+    <h2><a href="/product_categories/{{product_category.id}}/show">{{ product_category.name }}</a></h2>
+    <a href="/product_categories/{{product_category.id}}/edit">Edit</a>
+    <a href="/product_categories/{{product_category.id}}//delete">Delete</a>
+    <br>
 </div>
 
 {% endfor %}

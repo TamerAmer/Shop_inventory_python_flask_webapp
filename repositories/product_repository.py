@@ -64,7 +64,7 @@ def update(product):
     run_sql(sql,values)
 
 def sort_by_category():  
-    sql="SELECT * FROM products INNER JOIN product_categories ON products.product_category_id = product_categories.id ORDER BY product_categories.name"
+    sql="SELECT products.* FROM products INNER JOIN product_categories ON products.product_category_id = product_categories.id ORDER BY product_categories.name"
     products=[]
     results=run_sql(sql)
     for row in results:
@@ -76,7 +76,7 @@ def sort_by_category():
     return products
 
 def sort_by_category_desc():
-    sql="SELECT * FROM products INNER JOIN product_categories ON products.product_category_id = product_categories.id ORDER BY product_categories.name DESC"
+    sql="SELECT products.* FROM products INNER JOIN product_categories ON products.product_category_id = product_categories.id ORDER BY product_categories.name DESC"
     results=run_sql(sql)
     return return_python_objects(results)
 
@@ -91,21 +91,21 @@ def sort_by_name_desc():
     return return_python_objects(results)
 
 def sort_by_supplier():
-    sql="SELECT * FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.id ORDER BY suppliers.name"
+    sql="SELECT products.* FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.id ORDER BY suppliers.name"
     results=run_sql(sql)
     return return_python_objects(results)
 
 def sort_by_supplier_desc():
-    sql="SELECT * FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.id ORDER BY suppliers.name DESC"
+    sql="SELECT products.* FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.id ORDER BY suppliers.name DESC"
     results=run_sql(sql)
     return return_python_objects(results)
 
 def sort_by_manufacturer():
-    sql="SELECT * FROM products INNER JOIN manufacturers ON products.manufacturer_id = manufacturers.id ORDER BY manufacturers.name"
+    sql="SELECT products* FROM products INNER JOIN manufacturers ON products.manufacturer_id = manufacturers.id ORDER BY manufacturers.name"
     results=run_sql(sql)
     return return_python_objects(results)
 
 def sort_by_manufacturer_desc():
-    sql="SELECT * FROM products INNER JOIN manufacturers ON products.manufacturer_id = manufacturers.id ORDER BY manufacturers.name DESC"
+    sql="SELECT products* FROM products INNER JOIN manufacturers ON products.manufacturer_id = manufacturers.id ORDER BY manufacturers.name DESC"
     results=run_sql(sql)
     return return_python_objects(results)

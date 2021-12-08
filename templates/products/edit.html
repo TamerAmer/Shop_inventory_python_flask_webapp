@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>Add a Product</h1>
-<form action="/products/{{product.id}}" method="post">
+<form action="/products/{{product.id}}" method="post" id="edit-product">
 
     <label for="product_category_id">Select a product category:</label>
         <select name="product_category_id" id="product_category_id">

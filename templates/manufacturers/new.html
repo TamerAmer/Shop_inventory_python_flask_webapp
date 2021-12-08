@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Add a Manufacturer</h1>
 
-<form action="/manufacturers" method="POST">
+<form action="/manufacturers" method="POST" id="new-manufacturer">
   
     <label for="name">Add a name</label>
     <textarea name="name" id="name" cols="30" rows="1"></textarea>
@@ -14,7 +14,7 @@
     <label for="address">Add an address</label>
     <textarea name="address" id="address" cols="30" rows="1"></textarea>
 
-    <input class="btn btn--action" type='submit' value="Create Manufacturer">
+    <input class="btn btn--action" type='submit' value="Add New Manufacturer">
 </form>
 
 {% endblock %}
