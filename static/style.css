@@ -28,9 +28,14 @@ header>nav>ul>li>a:visited{
 }
 
 table{
-    margin: 0;
-    align-items: center;
-    width: 50%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+}
+table>thead>tr{
+    background-color: rgb(129, 129, 129);
+    text-align: left;
 }
 a:visited{
     text-decoration-style:none;

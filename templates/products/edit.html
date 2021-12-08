@@ -41,7 +41,7 @@
         </select>
 
     <label for="supplier">Select a Supplier:</label>
-        <select name="manufacturer_id" id="manufacturer">
+        <select name="supplier_id" id="supplier">
             {% for supplier in suppliers %}
                 <option value="{{supplier.id}}" {% if product.supplier.id==supplier.id %}
                     selected="selected"
