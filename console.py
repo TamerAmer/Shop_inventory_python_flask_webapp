@@ -81,3 +81,19 @@ product_repository.save(product6)
 
 product7=Product("Industrial Plastic Bugs","Black-5mm-Extra Large",400,400,800,"23/6/21-12:12",product5,manufacturer2,supplier4)
 product_repository.save(product7)
+
+
+
+
+
+
+
+
+
+
+
+
+# Filter database by Manufacturer
+# Get manufacturer id
+# Get manufacturers table id and products foreign key matches
+# Send new data list to products/index.html
