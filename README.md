@@ -19,6 +19,8 @@ psql -d shop_inventory -f db/shop_inventory.sql
 
 python3 console.py
 
+Open in Google Chrome using LocalHost:5000
+
 PROJECT BRIEF
 
 ### Shop Inventory
