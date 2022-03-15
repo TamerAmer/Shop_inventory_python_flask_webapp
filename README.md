@@ -46,3 +46,8 @@ eBay, Amazon (back end only), Magento
 * Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author.
 * Categorise your items. Books might be categorised by genre (crime, horror, romance...) and cars might be categorised by type (SUV, coupé, hatchback...). Provide an option to filter the inventory list by these categories.
 * Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
+
+<img width="1280" alt="Screenshot 2022-03-15 at 09 46 10" src="https://user-images.githubusercontent.com/83923406/158351512-b56e312a-1471-4f79-ad4a-d90afb127f42.png">
+<img width="1279" alt="Screenshot 2022-03-15 at 09 46 31" src="https://user-images.githubusercontent.com/83923406/158351561-e1da9169-0fba-4836-bcb1-1a10d971c297.png">
+<img width="1279" alt="Screenshot 2022-03-15 at 09 46 44" src="https://user-images.githubusercontent.com/83923406/158351610-202b1501-dfa1-4c03-bf78-7631bf08db8d.png">
+<img width="1279" alt="Screenshot 2022-03-15 at 09 47 08" src="https://user-images.githubusercontent.com/83923406/158351627-bf018133-c587-4caa-88ad-8ce4919a7031.png">
