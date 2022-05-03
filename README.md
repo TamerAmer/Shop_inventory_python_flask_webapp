@@ -5,7 +5,7 @@ warehouse. This program is dedicated to the younger version of me and the days l
 The program allows the user to add Categories,Manufacturers,Suppliers and Products which they can edit and delete.
 It can help you keep track of stock, orders, debt and many other important pieces of information that are needed for your inventory.
 
-To run the project you will need Flask, Psycopg2, Python3, Html, Postgresql
+To run the project you will need Flask, Psycopg2, Python3, Postgresql
 
 The recommended browser is Google Chrome.
 
